@@ -2,8 +2,8 @@
     "name": "markdowneditor1",
     "productName": "Markdown Editor1",
     "version": "1.0.0",
-    "description": "Realtime previewable Markdown editor1",
-    "main": ".webpack/main",
+    "description": "Realtime preview Markdown Editor1",
+    "main": ".vite/build/main.js",
     "scripts": {
         "start": "electron-forge start",
         "package": "electron-forge package",
@@ -25,20 +25,16 @@
         "@electron-forge/maker-zip": "^7.9.0",
         "@electron-forge/plugin-auto-unpack-natives": "^7.9.0",
         "@electron-forge/plugin-fuses": "^7.9.0",
-        "@electron-forge/plugin-webpack": "^7.9.0",
+        "@electron-forge/plugin-vite": "^7.9.0",
         "@electron/fuses": "^1.8.0",
+        "@types/electron-squirrel-startup": "^1.0.2",
         "@typescript-eslint/eslint-plugin": "^5.62.0",
         "@typescript-eslint/parser": "^5.62.0",
-        "@vercel/webpack-asset-relocator-loader": "^1.7.3",
-        "css-loader": "^6.11.0",
         "electron": "38.2.0",
         "eslint": "^8.57.1",
         "eslint-plugin-import": "^2.32.0",
-        "fork-ts-checker-webpack-plugin": "^7.3.0",
-        "node-loader": "^2.1.0",
-        "style-loader": "^3.3.4",
-        "ts-loader": "^9.5.4",
-        "typescript": "~4.5.4"
+        "typescript": "~4.5.4",
+        "vite": "^5.4.20"
     },
     "dependencies": {
         "electron-squirrel-startup": "^1.0.1"
