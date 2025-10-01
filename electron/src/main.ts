@@ -20,10 +20,10 @@ const createWindow = () => {
     });
 
     if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
-        // mainWindow.loadFile(
-        //     path.join(__dirname, "../../../front/build/index.html")
-        // );
-        mainWindow.loadURL("http://localhost:3000");
+        mainWindow.loadFile(
+            path.join(__dirname, "../../../front/build/index.html")
+        );
+        // mainWindow.loadURL("http://localhost:3000");
         // Open the DevTools.
         mainWindow.webContents.openDevTools();
     } else {
@@ -35,10 +35,13 @@ const createWindow = () => {
 
 app.on("ready", createWindow);
 
-ipcMain.handle("show-open-dialog", async (_, options) => {
-    const res = await dialog.showOpenDialog(mainWindow!, options);
-    return res;
-});
+ipcMain.handle(
+    "show-open-dialog",
+    async (_, options: Electron.OpenDialogOptions) => {
+        const res = await dialog.showOpenDialog(mainWindow!, options);
+        return res;
+    }
+);
 
 ipcMain.handle("read-file", async (_, filePath: string) => {
     const content = await fs.promises.readFile(filePath, "utf8");

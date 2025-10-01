@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import "./App.css";
 
 export default function EditorApp() {
     const [content, setContent] = useState<string>(
@@ -61,33 +62,26 @@ export default function EditorApp() {
     }
 
     return (
-        <div style={{ display: "flex", height: "100vh" }}>
-            <div style={{ width: "50%", padding: 12 }}>
+        <div className="main">
+            <div className="editor">
                 <input
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     placeholder="제목"
-                    style={{ width: "100%", marginBottom: 8 }}
+                    className="title"
                 />
                 <textarea
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
-                    style={{ width: "100%", height: "80%" }}
+                    className="textarea"
                 />
-                <div>
+                <div className="btns">
                     <button onClick={handleOpen}>열기</button>
                     <button onClick={handleSave}>저장</button>
                     <button onClick={handleExportHTML}>HTML 내보내기</button>
                 </div>
             </div>
-            <div
-                style={{
-                    width: "50%",
-                    padding: 12,
-                    overflow: "auto",
-                    borderLeft: "1px solid #ddd",
-                }}
-            >
+            <div className="markdown-viewer">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {content}
                 </ReactMarkdown>
